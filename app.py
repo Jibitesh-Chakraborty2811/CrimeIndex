@@ -7,6 +7,13 @@ import pandas as pd
 
 df_filtered = pd.read_csv('Final.csv')
 
+station_names = df_filtered['Police Station Name'].tolist()
+selected_station = st.selectbox("Select a Police Station", station_names)
+
+selected_row = df_filtered[df_filtered['Police Station Name'] == selected_station].iloc[0]
+
+st.write(f"**Crime Against Women Index for {selected_station}:** {selected_row['Crime Against Women Index']}")
+
 # Create a folium map
 m = folium.Map(location=[22.526493, 88.332369], zoom_start=13)
 
@@ -22,9 +29,3 @@ for index, row in df_filtered.iterrows():
 st.title('Crime Against Women Index - Kolkata')
 st_folium(m, width=700, height=500)
 
-station_names = df_filtered['Police Station Name'].tolist()
-selected_station = st.selectbox("Select a Police Station", station_names)
-
-selected_row = df_filtered[df_filtered['Police Station Name'] == selected_station].iloc[0]
-
-st.write(f"**Crime Against Women Index for {selected_station}:** {selected_row['Crime Against Women Index']}")
