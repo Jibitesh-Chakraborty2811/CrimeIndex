@@ -3,6 +3,8 @@ import folium
 from streamlit_folium import st_folium
 import pandas as pd
 import logging
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 #logging.basicConfig(level=logging.INFO)
 
