@@ -1,4 +1,4 @@
 streamlit_folium
 folium 
 pandas 
-firebase_admin
+firebase-admin
