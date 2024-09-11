@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 import logging
 
-logging.basicConfig(filename='report_logs.log', level=logging.INFO, format='%(asctime)s - %(message)s')
+logging.basicConfig(level=logging.INFO)
 
 st.title('Crime Against Women Index - Kolkata')
 
