@@ -14,7 +14,7 @@ selected_row = df_filtered[df_filtered['Police Station Name'] == selected_statio
 
 st.write(f"**Crime Against Women Index for {selected_station}:** {selected_row['Crime Against Women Index']}")
 
-nm = folium.Map(location=[selected_row['Latitude'],selected_row['Longitude']],zoom=13)
+nm = folium.Map(location=[selected_row['Latitude'],selected_row['Longitude']],zoom_start=13)
 folium.Marker(
     location=[selected_row['Latitude'],selected_row['Longitude']],
     popup=selected_row['Police Station Name'],
