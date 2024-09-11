@@ -2,6 +2,9 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 import pandas as pd
+import logging
+
+logging.basicConfig(filename='report_logs.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
 st.title('Crime Against Women Index - Kolkata')
 
@@ -12,7 +15,7 @@ text = st.text_input('Enter your report here')
 reports = []
 if st.button('Submit'):
     reports.append(text)
-    print(text)
+    logging.info(f"Report submitted: {text}")
     st.write('Your report has been recorded')
     
 df_filtered = pd.read_csv('Final.csv')
