@@ -7,7 +7,7 @@ st.title('Crime Against Women Index - Kolkata')
 
 st.write('**If you have anything to report, please feel free to report**')
 
-text = st.text_input()
+text = st.text_input('Enter your report here)
 
 reports = []
 if st.button('Submit'):
