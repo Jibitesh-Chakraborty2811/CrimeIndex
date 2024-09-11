@@ -21,7 +21,7 @@ folium.Marker(
     icon=folium.Icon(color=selected_row['Crime Against Women Index'].lower())
 ).add_to(nm)
 
-st_folium(m, width=700, height=500)
+st_folium(nm, width=700, height=500)
     
 
 st.image('output.png')
