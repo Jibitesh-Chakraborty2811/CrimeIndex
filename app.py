@@ -5,6 +5,16 @@ import pandas as pd
 
 st.title('Crime Against Women Index - Kolkata')
 
+st.write('**If you have anything to report, please feel free to report**')
+
+text = st.text_input()
+
+reports = []
+if st.button('Submit'):
+    reports.append(text)
+    print(text)
+    st.write('Your report has been recorded')
+    
 df_filtered = pd.read_csv('Final.csv')
 
 station_names = df_filtered['Police Station Name'].tolist()
