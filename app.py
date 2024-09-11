@@ -4,7 +4,13 @@ from streamlit_folium import st_folium
 import pandas as pd
 import logging
 
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
+
+if not firebase_admin._apps:
+    cred = credentials.Certificate("crimeagainstwomenindex-firebase-adminsdk-7b0uc-1ff3e12bed.json") 
+    firebase_admin.initialize_app(cred)
+
+db = firestore.client()
 
 st.title('Crime Against Women Index - Kolkata')
 
@@ -14,9 +20,16 @@ text = st.text_input('Enter your report here')
 
 reports = []
 if st.button('Submit'):
-    reports.append(text)
-    logging.info(f"Report submitted: {text}")
-    st.write('Your report has been recorded')
+    if text:
+        
+        doc_ref = db.collection('Reports').add({
+            'report': text,
+            'status': 'submitted'
+        })
+        
+        st.write('Your report has been recorded in Firestore')
+    else:
+        st.write('Please enter a report before submitting.')
     
 df_filtered = pd.read_csv('Final.csv')
 
